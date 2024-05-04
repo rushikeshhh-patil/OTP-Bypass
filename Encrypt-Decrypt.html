@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypt, Modify, and Re-encrypt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box; /* Adjust box sizing */
+
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .btn-container {
+            text-align: right;
+        }
+
+        .btn-container button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Decrypt, Modify, and Re-encrypt</h2>
+        <div class="form-group">
+            <label for="encryptedPayload">Encrypted Payload:</label>
+            <input type="text" id="encryptedPayload" name="encryptedPayload" placeholder="Enter encrypted payload">
+        </div>
+        <div class="form-group">
+            <label for="decryptedPayload">Decrypted Payload:</label>
+            <textarea id="decryptedPayload" name="decryptedPayload" rows="4" cols="50" readonly></textarea>
+        </div>
+        <div class="form-group">
+            <label for="modifiedPayload">Modified Payload:</label>
+            <textarea id="modifiedPayload" name="modifiedPayload" rows="4" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="reEncryptedPayload">Re-encrypted Payload:</label>
+            <textarea id="reEncryptedPayload" name="reEncryptedPayload" rows="4" cols="50" readonly></textarea>
+        </div>
+        <div class="btn-container">
+            <button onclick="decryptAndModify()">Decrypt and Modify</button>
+            <button onclick="reEncrypt()">Re-encrypt</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        const key = "7gD5tR9xP2fN3sH6jK8lM0qA4wE1vY5u"; // Replace "your_secret_key" with your actual secret key
+
+        function decryptAndModify() {
+            const encryptedPayload = document.getElementById("encryptedPayload").value;
+            const decryptedPayload = CryptoJS.AES.decrypt(encryptedPayload, key).toString(CryptoJS.enc.Utf8);
+            document.getElementById("decryptedPayload").value = decryptedPayload;
+        }
+
+        function reEncrypt() {
+            const modifiedPayload = document.getElementById("modifiedPayload").value;
+            const reEncryptedPayload = CryptoJS.AES.encrypt(modifiedPayload, key).toString();
+            document.getElementById("reEncryptedPayload").value = reEncryptedPayload;
+        }
+    </script>
+</body>
+</html>
