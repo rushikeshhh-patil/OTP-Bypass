@@ -23,15 +23,20 @@ The lab consists of a simple web application that utilizes CryptoJS for AES encr
 ```bash
 git clone https://github.com/yourusername/hardcoded-key-exploitation-lab.git
 ```
-3. Navigate to the project directory
+2. Navigate to the project directory
 ```bash
 cd hardcoded-key-exploitation-lab
 ```
-5. Install dependencies
+3. Install dependencies
 ```bash
 npm install express body-parser crypto-js
 ```
-7. Start the server
+4. Start the server
 ```bash
 npm start or npm server.js
 ```
+5. Visit
+```bash
+http://localhost:3000
+```
+For additional simulation scenarios and in-depth discussions on similar vulnerabilities and their mitigation, please refer to the comprehensive resources available at [BreachForce Blog](https://breachforce.net/exploiting-exposed-encryption-keys).
