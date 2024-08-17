@@ -25,7 +25,7 @@ git clone https://github.com/rushikeshhh-patil/OTP-Bypass.git
 ```
 2. Navigate to the project directory
 ```bash
-cd hardcoded-key-exploitation-lab
+cd OTP-Bypass
 ```
 3. Install dependencies
 ```bash
