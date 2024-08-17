@@ -21,7 +21,7 @@ The lab consists of a simple web application that utilizes CryptoJS for AES encr
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/hardcoded-key-exploitation-lab.git
+git clone https://github.com/rushikeshhh-patil/OTP-Bypass.git
 ```
 2. Navigate to the project directory
 ```bash
